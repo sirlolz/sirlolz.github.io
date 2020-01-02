@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const odd = document.getElementById("odd");
     odd.addEventListener("click", ()=>plotAll(oddList(100)));
+    plotXY();
 });
 
 function addDot(e){

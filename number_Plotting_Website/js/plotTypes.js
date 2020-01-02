@@ -57,4 +57,18 @@ function oddList(num) {
     }
     return odd
 }
-    
+
+
+//used for plotting single x,y cordinates
+//input should be 2 integers
+function plotPoint(xValue, yValue){
+    const game = document.getElementById("game");
+    const ctx = game.getContext("2d");
+    ctx.clearRect(0, 0, game.width, game.height);
+    drawGame();
+    ctx.beginPath();
+    ctx.fillStyle = "red"
+    ctx.arc((xValue * 10) - 0.5, (game.height - (yValue * 10)) + 0.5, 3, 0, 2 * Math.PI); // circles
+    ctx.lineWidth = 1;
+    ctx.fill();
+}
