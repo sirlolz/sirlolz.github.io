@@ -1,3 +1,5 @@
+var correct = 0;
+var wrong = 0;
 // generates a number 1-9
 function generateNumber(){
     const n = Math.random() * 10;
@@ -15,7 +17,7 @@ function generateForm(){
     input.setAttribute("id", "userAnswer")
     button.setAttribute("type", "submit");
 
-    button.innerText = "clicky-clicky";
+    button.value = "clicky-clicky";
 
     form.appendChild(input);
     form.appendChild(button);
@@ -30,11 +32,23 @@ function onSubmit(event){
     const num2 = getNumber(2);
     const answer = parseInt(event.target.userAnswer.value);
     if(num1*num2 === answer){
-        console.log("correct");
+        changeCorrect();
         reset();
     }else{
-        console.log("false");
+        changeWrong();
+        reset();
     }
+}
+
+function changeCorrect(){
+    correct += 1;
+    document.getElementById('correct').innerText = correct + " correct";
+
+}
+
+function changeWrong(){
+    wrong += 1;
+    document.getElementById('wrong').innerText = wrong + " wrong";
 }
 
 function reset(){
