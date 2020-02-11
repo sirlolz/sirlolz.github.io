@@ -3,7 +3,7 @@ var wrong = 0;
 // generates a number 1-9
 function generateNumber(){
     const n = Math.random() * 10;
-    return Math.floor(n);
+    return Math.floor(n, 2);
 }
 
 //creates new form element
@@ -13,7 +13,7 @@ function generateForm(){
     const input = document.createElement("input");
     const button = document.createElement("input");
 
-    input.setAttribute("type", "text");
+    input.setAttribute("type", "number");
     input.setAttribute("id", "userAnswer")
     button.setAttribute("type", "submit");
 
@@ -36,7 +36,6 @@ function onSubmit(event){
         reset();
     }else{
         changeWrong();
-        reset();
     }
 }
 
