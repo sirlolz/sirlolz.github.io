@@ -78,6 +78,10 @@ function generateQestion(){
     return true;
 }
 
+function changeOperator(){
+
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
     generateQestion();
     generateForm();
