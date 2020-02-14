@@ -31,11 +31,34 @@ function onSubmit(event){
     const num1 = getNumber(1);
     const num2 = getNumber(2);
     const answer = parseInt(event.target.userAnswer.value);
-    if(num1*num2 === answer){
-        changeCorrect();
-        reset();
-    }else{
-        changeWrong();
+    const operator = document.getElementById("operator");
+    switch(operator.innerText){
+        case "*" :
+            if(num1*num2 == answer){
+                changeCorrect();
+                reset();
+            }else{
+                changeWrong();
+            }
+            break;
+        case '+':
+            if(num1+num2 == answer){
+                changeCorrect();
+                reset();
+            }else{
+                changeWrong();
+            }
+            break;
+        case '-':
+            if(num1-num2 == answer){
+                changeCorrect();
+                reset();
+            }else{
+                changeWrong();
+            }
+            break;
+        default:
+            console.log("switch error line 35 MFlashCard.js");
     }
 }
 
@@ -78,11 +101,23 @@ function generateQestion(){
     return true;
 }
 
-function changeOperator(){
+function changeOperator(value){
+    document.getElementById("operator").innerText = value;
+}
 
+function operatorEventListner(){
+    const multiply = document.getElementById("multiply");
+    const divide = document.getElementById("devide");
+    const add = document.getElementById("add");
+    const subtract = document.getElementById("subtract");
+    
+    multiply.addEventListener("click", ()=>{changeOperator("*");});
+    add.addEventListener("click", ()=>{changeOperator("+");});
+    subtract.addEventListener("click", ()=>{changeOperator("-");});
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
+    operatorEventListner();
     generateQestion();
     generateForm();
 })
